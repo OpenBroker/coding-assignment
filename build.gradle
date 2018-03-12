@@ -1,0 +1,36 @@
+buildscript {
+    dependencies {
+        classpath "com.github.jengelman.gradle.plugins:shadow:2.0.2"
+    }
+}
+
+plugins {
+    id 'java'
+    id 'groovy'
+    id 'idea'
+    id 'io.franzbecker.gradle-lombok' version '1.11'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '2.0.2'
+}
+
+group 'ru.open'
+version '1.0.0'
+
+sourceCompatibility = 1.8
+
+mainClassName = 'ru.open.drawing.Drawing'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile localGroovy()
+    compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.1'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+lombok {
+    version = "1.16.20"
+}
